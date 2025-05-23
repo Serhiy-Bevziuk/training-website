@@ -1,0 +1,235 @@
+/* Змінні кольорів та значень */
+:root {
+  --color-primary: #28a745;
+  --color-primary-dark: #155724;
+  --color-bg-light: #d4edda;
+  --color-bg-medium: #c3e6cb;
+  --color-bg-hover: #b1dfbb;
+  --spacing-base: 1rem;
+  --header-height: 60px;
+  --transition-base: 0.2s ease;
+  --shadow-base: 0 4px 8px rgba(40, 167, 69, 0.2);
+}
+
+/* Базові стилі */
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Layout styles for sticky footer */
+main {
+  flex: initial;
+  min-height: initial;
+}
+
+footer {
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+/* Компоненти */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.header-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 100px;
+  width: 100%;
+}
+
+.logo-container {
+  flex-shrink: 0;
+  width: 250px;
+}
+
+.site-logo {
+  height: 40px;
+  object-fit: cover;
+  width: 40px;
+}
+
+.nav-main {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: var(--spacing-base);
+  justify-content: center;
+  margin: 0;
+  padding: 0 var(--spacing-base);
+  width: auto;
+}
+
+.nav-link {
+  align-items: center;
+  display: inline-flex;
+  padding: calc(var(--spacing-base) * 0.5) var(--spacing-base);
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-link::after {
+  background: currentColor;
+  bottom: 0;
+  content: '';
+  height: 2px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  transform: translateY(3px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+  width: 100%;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9);
+  padding: var(--spacing-base);
+  text-decoration: none;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.nav-link.active {
+  background: rgba(0, 0, 0, 0.15);
+  color: #fff;
+}
+
+/* Контейнер для пошуку */
+.search-container {
+  flex-shrink: 0;
+  min-width: 250px;
+  width: 250px;
+}
+
+/* Глобальні налаштування для всіх посилань навігації */
+.nav-link,
+.nav-link:hover,
+.nav-link:focus,
+.nav-link:active,
+.nav-link.active {
+  text-decoration: none;
+}
+
+/* Оновлені стилі теми */
+.custom-green-theme {
+  background-color: var(--color-bg-light);
+  color: var(--color-primary-dark);
+  min-height: 100vh;
+}
+
+.custom-green-theme .nav-link {
+  color: var(--color-primary);
+}
+
+.custom-green-theme .nav-link:hover {
+  color: var(--color-primary-dark);
+}
+
+.custom-green-theme .list-group-item {
+  background-color: var(--color-bg-medium);
+  color: var(--color-primary-dark);
+  transition: background-color var(--transition-base);
+}
+
+.custom-green-theme .list-group-item:hover {
+  background-color: var(--color-bg-hover);
+}
+
+/* Каруселі */
+.carousel {
+  margin-bottom: calc(var(--spacing-base) * 3);
+}
+
+.carousel-item {
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.carousel-item img {
+  border-radius: 25px;
+  max-height: 500px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(200, 200, 200, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  height: 70px;
+  padding: 18px;
+  transition: transform var(--transition-base);
+  width: 70px;
+}
+
+.carousel-control:hover {
+  background: #b4b4b4;
+  transform: scale(1.1);
+}
+
+.carousel-indicators {
+  bottom: -50px;
+}
+
+.carousel-indicators button {
+  border: 2px solid #28a745 !important;
+  border-radius: 50% !important;
+  height: 20px !important;
+  margin: 0 12px !important;
+  padding: 0 !important;
+  width: 20px !important;
+}
+
+.carousel-indicators button.active {
+  background-color: #155724;
+  opacity: 1;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  opacity: 1;
+  width: 15%;
+}
+
+.carousel-indicators [data-bs-target]:hover {
+  transform: scale(1.1);
+}
+
+.carousel-indicators .active {
+  background-color: #28a745;
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+#carouselExampleIndicators {
+  margin-bottom: 3rem;
+}
+
+/* Стилі для інтерактивних елементів */
+.card.cursor-pointer {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card.cursor-pointer:hover {
+  box-shadow: var(--shadow-base);
+  transform: translateY(-2px);
+}
